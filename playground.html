@@ -1,33 +1,4 @@
 <!-- From https://codepen.io/qiaoli116/pen/MqNObm -->
-<script>
-  $(document).ready(function(){
-  
-$(".m-more-less-content .m-show-more").click(function(){
-  $(this).parent().addClass("m-display-more");
-});
-$(".m-more-less-content .m-show-less").click(function(){
-  $(this).parent().removeClass("m-display-more");
-});
-
-$(".m-more-less-content").each(function (i, e){
-  var html = $(e).html();
-  console.log(html);
-  var contentArray = html.split("<more>");
-  console.log(contentArray);
-  if (contentArray.length == 2) {
-    html = contentArray[0] + '<span class="m-show-more"></span><span class="m-more-text">' + contentArray[1] + '</span><span class="m-show-less"></span>';
-    console.log(html);
-    $(e).html(html);
-    $(e).find(".m-show-more").click(function(){
-      $(this).parent().addClass("m-display-more");
-    });
-    $(e).find(".m-show-less").click(function(){
-      $(this).parent().removeClass("m-display-more");
-    });
-  }
-});
-});
-</script>
 <style>
   .m-more-less-content span {
   display: inline;
@@ -61,6 +32,37 @@ $(".m-more-less-content").each(function (i, e){
   display: inline;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+  
+$(".m-more-less-content .m-show-more").click(function(){
+  $(this).parent().addClass("m-display-more");
+});
+$(".m-more-less-content .m-show-less").click(function(){
+  $(this).parent().removeClass("m-display-more");
+});
+
+$(".m-more-less-content").each(function (i, e){
+  var html = $(e).html();
+  console.log(html);
+  var contentArray = html.split("<more>");
+  console.log(contentArray);
+  if (contentArray.length == 2) {
+    html = contentArray[0] + '<span class="m-show-more"></span><span class="m-more-text">' + contentArray[1] + '</span><span class="m-show-less"></span>';
+    console.log(html);
+    $(e).html(html);
+    $(e).find(".m-show-more").click(function(){
+      $(this).parent().addClass("m-display-more");
+    });
+    $(e).find(".m-show-less").click(function(){
+      $(this).parent().removeClass("m-display-more");
+    });
+  }
+});
+});
+</script>
+
 <div class="m-more-less-content">
     <p>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><more /><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren</p>
   </div>
